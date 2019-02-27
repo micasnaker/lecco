@@ -1,0 +1,34 @@
+/* pages/tob/shop/ListShop.wxss */
+.empty {
+  height: 85px;
+}
+
+.hidelist {
+  animation-name: hide;
+  animation-duration: 0.5s;
+  animation-fill-mode:forwards;
+}
+
+@keyframes hide {
+  0% {
+    top: 0px;
+  }
+
+  100% {
+    top: -100px;
+  }
+}
+.showlist{
+  animation-name: show;
+  animation-duration: 0.5s;
+  animation-fill-mode:forwards;
+}
+@keyframes show {
+  0% {
+    top: -100px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}

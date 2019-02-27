@@ -1,0 +1,32 @@
+/* pages/toc/order/CustomerOrderList.wxss */
+
+.button-list {
+  white-space: nowrap;
+  height: 45px;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  display: flex;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.button-list view{
+  display:inline-block;
+  width: 150rpx;
+  height: 45px;
+}
+.button-list text {
+  display:inline-block;
+  line-height: 44px;
+  width: 100%;
+  margin: 0 auto;
+  text-align:center;
+}
+
+.button-effect {
+  border-bottom: 1px red solid;
+  font-weight: bold;
+}

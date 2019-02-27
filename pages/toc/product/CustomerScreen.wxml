@@ -1,0 +1,45 @@
+<view class="scroll-content">
+  <view class="w12">
+    <view class="sx_item mb15">
+      <view class="jl_form">
+        <view class="jl_form_item bor_bottom">
+          <span class="w06">分类</span>
+        </view>
+      </view>
+      <ul>
+        <li wx:for="{{LevelList}}" bindtap="Levescreen" id='{{index}}'>
+          <span class="{{Levescreen==index?'xuan':''}}">{{item.FLNAME}}</span>
+        </li>
+      </ul>
+    </view>
+    <view class="sx_item mb15">
+      <view class="jl_form">
+        <view class="jl_form_item bor_bottom">
+          <span class="w06">品牌</span>
+        </view>
+      </view>
+      <ul>
+        <!---->
+      </ul>
+    </view>
+
+  </view>
+</view>
+
+
+
+
+
+
+
+
+<view class="footer_buttom" style='position:fixed;bottom:0;'>
+  <button bindtap='Reset' class="w06 font_size_large white_btn button button-md button-default button-default-md" >
+    <span class="button-inner">重 置</span>
+    <view class="button-effect"></view>
+  </button>
+  <button bindtap='Sure' style='background:#ff9728' class="w06 font_size_large button button-md button-default button-default-md">
+    <span class="button-inner">确 定</span>
+    <view class="button-effect"></view>
+  </button>
+</view>

@@ -1,0 +1,126 @@
+<view class="scroll-content">
+  <view class="w12 pb50" style="min-height:calc(100% + 1px)">
+    <view class="w12 mb15 customer" bindtap='address'>
+
+      <view hidden='{{!ReceivingAddress}}' class="w12 customer_info">
+        <view class="h3 fl mtb0 plb0">{{address.NAME}}</view>
+        <view class="h3 fl ml15">{{address.MOBILE}}</view>
+        <view class="w12 mt5 font_black_999">
+          <i class="fa fa-map-marker mr5"></i>{{address.STATE}} {{address.CITY}} {{address.DISTRICT}} {{address.ADDRESS}}
+        </view>
+      </view>
+
+      <view hidden='{{ReceivingAddress}}' class="w12 customer_info h3">
+        <view class="tc font_gray mt10 mb10">
+          <i class="fa fa-plus mr10 "></i>请选择地址
+        </view>
+      </view>
+
+      <view class="w12 line01"></view>
+    </view>
+
+    <view hidden='{{hwg}}' class="w12 mb15 bgcolor_white">
+      <view class="w12 jl_input">
+        <view class="jl_input_item bor_bottom pr15">
+          <span class="w03" style="height: 40px; line-height: 40px;">身份证号码</span>
+          <input type='idcard' bindinput='sfz' class="w09 tl ng-untouched ng-pristine ng-valid" placeholder="请填写收货人的身份证号" style="height: 40px; line-height: 40px;background: #f7f7f7;" />
+        </view>
+        <view class="jl_input_item bor_bottom pr15" style=" font-size: 12px !important; padding-top: 0px; color: red;">因海关政策要求，购买海外购商品需填写收货人的身份证号</view>
+      </view>
+    </view>
+
+
+    <block wx:for="{{cart_commodity}}" wx:for-item="store_number">
+      <view class="w12 mb15 bgcolor_white">
+        <view class="w12 cart_pro_header">
+          <b class="fl">{{store_number.STORE_NAME}}</b>
+        </view>
+        <block wx:for='{{store_number.productList}}'>
+          <view class="w12 cart_pro_list pl0">
+            <!---->
+            <view class="w12 cart_pro_item pl10">
+              <view class="cart_pro_info">
+                <!---->
+                <view>
+                  <!---->
+                  <image mode='widthFix' src="{{item.PRODUCT_DETAIL_IMG}}" />
+                </view>
+                <view class="w12 pro_name h3">{{item.PRODUCT_NAME}}</view>
+                <span class="w12 font_gray font_size_msmall">库存:{{item.SALE_NUM}}</span>
+                <view class="w12 mt5">
+                  <view class="w06 pro_pic">
+                    <span>￥</span>
+                    <b>{{item.PRICE}}</b>
+                  </view>
+                  <view class="num_p_m" style="line-height: 25px;">
+                    x{{item.QUANTITY}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="w12 bgcolor_white">
+          <!---->
+          <view class="jl_form">
+            <view class="jl_form_item bor_bottom">
+              <span class="w03">发票信息</span>
+              <span class="w09 tr" bindtap="invoice">{{invoice}}</span>
+              <i class="fa fa-angle-right"></i>
+            </view>
+          </view>
+          <view class="w12 jl_input">
+            <view class="jl_input_item bor_bottom pr15">
+              <span class="w03">买家留言</span>
+              <input bindinput='remark' class="w09 tl ng-untouched ng-pristine ng-valid" placeholder="填写内容已和卖家协商确认" type="text" />
+            </view>
+          </view>
+          <view class="jl_form">
+            <view class="jl_form_item bor_bottom ">
+              <span class="w03">配送方式</span>
+              <span class="w09 tr">快递</span>
+              <i class="fa fa-angle-right"></i>
+            </view>
+          </view>
+          <view class="jl_form">
+            <view class="jl_form_item bor_bottom pr15">
+              <span class="w03">运费</span>
+              <block wx:if="{{store_number.KD_PRICE}}">
+                <span class="w09 tr">
+                  <!---->
+                  <span>（满{{store_number.FREEPOSTMONEY}}包邮）</span>
+                  ￥{{store_number.KD_PRICE}}</span>
+              </block>
+              <block wx:else>
+                <span class="w09 tr">
+                  <span>免邮</span>
+                </span>
+              </block>
+            </view>
+          </view>
+          <view class="jl_form">
+            <view class="jl_form_item pr15">
+              <span class="w12 tr">
+                小计：
+                <em class="font_size_small font_red">￥</em>
+                <b class="font_red">{{store_number.Subtotal}}</b>
+              </span>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+  </view>
+
+  <view class="w12 cart_footer" style="position: fixed; left: 0px; bottom: 0px; z-index: 10;">
+    <view class="w08 pl10 font_red pr10">
+      <span class="fl mt15 lh30">￥</span>
+      <view style='line-height:35px;font-size:20px;font-weight:bold;' class="fl mt15 h2">{{prices}}</view>
+    </view>
+    <button bindtap='placeOrder' class="w04 add_ljgm_btn button button-md button-default button-default-md" ion-button="">
+      <span class="button-inner">提交订单</span>
+      <view class="button-effect"></view>
+    </button>
+  </view>
+</view>

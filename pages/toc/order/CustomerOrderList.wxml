@@ -1,0 +1,123 @@
+<scroll-view class='button-list z_index999 font_size_standard' scroll-x="true">
+  <view bindtap='button' data-STATUS_ID="">
+    <text class="{{STATUS_ID==''?'button-effect':''}}">全部({{dd.qb}})</text>
+  </view>
+  <view bindtap='button' data-STATUS_ID="OrderOpen">
+    <text class="{{STATUS_ID=='OrderOpen'?'button-effect':''}}">待付款({{dd.DFK}})</text>
+  </view>
+  <view bindtap='button' data-STATUS_ID="DFH">
+    <text class="{{STATUS_ID=='DFH'?'button-effect':''}}">待发货({{dd.YFK}})</text>
+  </view>
+  <view bindtap='button' data-STATUS_ID="DSH">
+    <text class="{{STATUS_ID=='DSH'?'button-effect':''}}">待收货({{dd.YFH}})</text>
+  </view>
+  <view bindtap='button' data-STATUS_ID="DPJ">
+    <text class="{{STATUS_ID=='DPJ'?'button-effect':''}}">待评价({{dd.DPJ}})</text>
+  </view>
+</scroll-view>
+
+<view style='height:45px'></view>
+
+<block wx:for="{{lists}}">
+  <view class="w12 cart_pro bgcolor_white mb15">
+    <view class="w12 cart_pro_header">
+      <span>订单号：</span>
+      <span>
+        <p>{{item.ORDER_PART_SEQ_ID}}</p>
+      </span>
+
+      <!--此处可以增加其他业务逻辑 这里是控制外面的元素的-->
+      <block wx:if="{{STATUS_ID==''}}">
+        <block wx:if="{{item.ITEM[0].DJZT=='Orderbindled'}}">
+          <span class="fr font_red">已取消</span>
+        </block>
+        <block wx:elif="{{item.ITEM[0].DJZT=='OrderOpen'}}">
+          <span class="fr font_red">待付款</span>
+        </block>
+        <block wx:elif="{{item.ITEM[0].DJZT=='OrderCompleted'}}">
+          <span class="fr font_red">已完成</span>
+        </block>
+        <block wx:elif="{{item.ITEM[0].DJZT=='OrderDeliver'}}">
+          <span class="fr font_red">已发货</span>
+        </block>
+      </block>
+
+      <!--这里是控制里面的元素的-->
+      <block wx:elif="{{STATUS_ID=='OrderOpen'}}">
+        <span class="fr font_red">待付款</span>
+      </block>
+      <block wx:elif="{{STATUS_ID=='DSH'}}">
+        <span class="fr font_red">已完成</span>
+      </block>
+      <block wx:elif="{{STATUS_ID=='DPJ'}}">
+        <span class="fr font_red">已发货</span>
+      </block>
+
+    </view>
+    <view class="w12 cart_pro_list bor_bottom" bindtap='order' id="{{index}}">
+      <block wx:for='{{item.ITEM}}'>
+        <view class="w12 cart_pro_item mb0 bgcolor_gray_555 pt10 pb10" style="padding-left:90px;">
+          <image style="width:70px;" mode="widthFix" src="{{item.PRODUCT_DETAIL_IMG||'/img/defaultImage.jpg'}}" />
+          <view class="w12 pro_name h3">{{item.PRODUCT_NAME}} </view>
+          <view class="w12 mt10">
+            <view class="w12 pro_pic">
+              <span>￥</span>
+              <b class="fl">{{item.PRICE}}</b>
+              <!--    <span>.00</span>   -->
+              <span class="fr tc" style="width:40px;color: gray">
+                <font>× {{item.QUANTITY}}</font>
+              </span>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!-- <view class="w12 mt10 pr10 tr font_gray">购买人:qwerty</view>   -->
+      <view class="w12 mt5 mb10 pr10 tr font_weight_bold">共{{item.ITEM.length}}件商品 实付:￥{{item.prices}}</view>
+
+    </view>
+    <view class="w12 cart_pro_header">
+    </view>
+
+    <!--此处可以增加其他业务逻辑-->
+
+    <view class="w12 cart_pro_bottom pl0">
+      <view class="fr">
+
+        <block wx:if="{{STATUS_ID==''}}">
+          <block wx:if="{{item.ITEM[0].DJZT	=='OrderOpen'}}">
+            <view bindtap='bind' id='0' data-index='{{index}}'>立即支付</view>
+            <view bindtap='bind' id='1' data-index='{{index}}'>取消订单</view>
+          </block>
+          <block wx:elif="{{item.ITEM[0].DJZT	=='OrderCompleted'}}">
+            <view bindtap='bind' id='0' data-index='{{index}}'>申请退货</view>
+            <view bindtap='bind' id='1' data-index='{{index}}'>立即评价</view>
+          </block>
+          <block wx:elif="{{item.ITEM[0].DJZT	=='OrderDeliver'}}">
+            <view bindtap='bind' id='0' data-index='{{index}}'>查看物流</view>
+            <view style='border: 1px solid #ff6537;color:#ff6537;' bindtap='bind' id='1' data-index='{{index}}'>确认收货</view>
+          </block>
+        </block>
+
+        <block wx:elif="{{STATUS_ID=='OrderOpen'}}">
+          <view bindtap='bind' id='0' data-index='{{index}}'>立即支付</view>
+          <view bindtap='bind' id='1' data-index='{{index}}'>取消订单</view>
+        </block>
+         <block wx:elif="{{STATUS_ID=='DSH'}}">
+          <view bindtap='bind' id='0' data-index='{{index}}'>查看物流</view>
+          <view style='border: 1px solid #ff6537;color:#ff6537;' bindtap='bind' id='1' data-index='{{index}}'>确认收货</view>
+        </block>
+        <block wx:elif="{{STATUS_ID=='DPJ'}}">
+          <view bindtap='bind' id='0' data-index='{{index}}'>申请退货</view>
+          <view bindtap='bind' id='1' data-index='{{index}}'>立即评价</view>
+        </block>
+
+      </view>
+    </view>
+
+
+
+
+
+
+  </view>
+</block>

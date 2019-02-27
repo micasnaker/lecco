@@ -1,0 +1,139 @@
+<view class="vip_user_info">
+  <view class="w11" bindtap='userInfo'>
+    <image hidden="{{imageurl}}" src='/img/userPic.png'/>
+    <open-data hidden='{{!imageurl}}' type="userAvatarUrl"></open-data>
+    <view class="user_name mt5">
+      <view class="w12 h3">{{UserInfo.USERNAME||"请登录"}}</view>
+      <!--<span class="w12 mt5">ID号：{{UserInfo.USERID}}</span>-->
+    </view>
+  </view>
+<!--  <button class="fr">
+    <i class="fa fa-cog mr10"></i>
+    <i class="fa fa-volume-control-phone"></i>
+  </button>
+  -->
+</view>
+
+<!--
+<view class="user_card">
+  <view class="user_card_main">
+    <view class="user_card_header">我的钱包
+      <button class="add_ljgm_btn" style='line-height:20px'>充值</button>
+    </view>
+    <view class="user_card_body">
+      <view class="w06 user_card_case">
+        <view class="w12 tc h3">68555.08
+          <font>元</font>
+        </view>
+        <span class="w12 tc">账户余额</span>
+      </view>
+      <view class="w06 user_card_case">
+        <view class="w12 tc h3">0
+          <font>元</font>
+        </view>
+        <span class="w12 tc">分红</span>
+      </view>
+    </view>
+  </view>
+</view>
+-->
+
+<view class="user_card">
+  <view class="user_card_main">
+    <view class="user_card_header">我的订单
+      <view class="fr" bindtap="order" data-STATUS_ID="">
+        <span style="font-size:12px">全部订单</span>
+        <i class="fa fa-angle-right ml5"></i>
+      </view>
+    </view>
+    <view class="user_card_body">
+      <view class="user_card_case">
+        <ul class="w12 shop_myorder_nav pt20 pb0">
+          <li class="w03" bindtap="order" data-STATUS_ID="OrderOpen">
+            <view class="w12 tc">
+              <i class="fa fa-credit-card icon"></i>
+            </view>
+            <span class="w12 tc">待付款({{dd.DFK}})</span>
+          </li>
+          <li class="w03" bindtap="order" data-STATUS_ID="DFH">
+            <view class="w12 tc">
+              <i class="fa fa-archive icon"></i>
+            </view>
+            <span class="w12 tc">待发货({{dd.YFK}})</span>
+          </li>
+          <li class="w03" bindtap="order" data-STATUS_ID="DSH">
+            <view class="w12 tc">
+              <i class="fa fa-truck icon"></i>
+            </view>
+            <span class="w12 tc">待收货({{dd.YFH}})</span>
+          </li>
+          <li class="w03">
+            <view class="w12 tc">
+              <i class="fa fa-shield icon"></i>
+            </view>
+            <span class="w12 tc">退款</span>
+          </li>
+        </ul>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--
+<view class="user_card">
+  <view class="user_card_main">
+    <view class="user_card_header">运营收益
+      <view class="fr">
+        <span style="font-size:12px">详情</span>
+        <i class="fa fa-angle-right ml5"></i>
+      </view>
+    </view>
+    <view class="user_card_body">
+      <view class="w03 user_card_case">
+        <view class="w12 tc h3">800
+          <font>元</font>
+        </view>
+        <span class="w12 tc">运营总收益</span>
+      </view>
+      <view class="w03 user_card_case">
+        <view class="w12 tc h3">8
+          <font>个</font>
+        </view>
+        <span class="w12 tc">零售商管理</span>
+      </view>
+      <view class="w03 user_card_case">
+        <view class="w12 tc h3">228
+          <font>单</font>
+        </view>
+        <span class="w12 tc">代付订单</span>
+      </view>
+      <view class="w03 user_card_case">
+        <view class="w12 tc h3">90
+          <font>单</font>
+        </view>
+        <span class="w12 tc">运营订单</span>
+      </view>
+    </view>
+  </view>
+</view>-->
+
+
+<view class="user_card">
+  <view class="user_card_main">
+    <view class="user_card_header" bindtap='CustomerProductFavorite' ng-reflect-nav-push="DistributorJLOrderPage">商品关注
+      <view class="fr">
+        <span></span>
+        <i class="fa fa-angle-right ml5"></i>
+      </view>
+    </view>
+
+    <view bindtap='ress' class="user_card_header" ng-reflect-nav-push="AddressBaofengListPage">收货地址
+      <view class="fr">
+        <span></span>
+        <i class="fa fa-angle-right ml5"></i>
+      </view>
+    </view>
+
+
+  </view>
+</view>

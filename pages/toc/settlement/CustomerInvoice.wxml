@@ -1,0 +1,204 @@
+<view class="scroll-content">
+  <view class="w12">
+    <view class="w12 bgcolor_white">
+      <view class="jl_list">
+        <view class="jl_list_item" style="font-weight: bold;">
+          <span class="w12">发票类型</span>
+        </view>
+        <view class="w12 pb15">
+          <!---->
+          <view bindtap='InvoiceType' class="invoice_btn w04 {{InvoiceType?'xuan':''}} ">增值税普通发票
+          </view>
+          <!---->
+          <!---->
+          <view bindtap='InvoiceType' class="invoice_btn w04 {{InvoiceType?'':'xuan'}}">增值税专用发票
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <!---->
+    <block wx:if="{{InvoiceType}}">
+      <form bindsubmit="ordinarySubmit">
+        <view class="w12 mt15 bgcolor_white">
+          <view class="jl_list">
+            <view class="jl_list_item" style="font-weight: bold;">
+              <span class="w12">发票抬头</span>
+            </view>
+            <view class="w12 pb15">
+              <view bindtap='personalCompany' class="invoice_btn w04 {{personalCompany?'xuan':''}}">个人
+              </view>
+              <view bindtap='personalCompany' class="invoice_btn w04 {{personalCompany?'':'xuan'}}">单位
+              </view>
+            </view>
+            <!---->
+            <view hidden='{{personalCompany}}' class="w11 pr15 pb15">
+              <input name="INVOICE_COMPANY_NAME" value='{{obj.INVOICE_COMPANY_NAME}}' class="w12 invoice_input ng-untouched ng-pristine ng-valid" placeholder="请填写单位名称" />
+            </view>
+            <view hidden='{{personalCompany}}' class="w11 pr15 pb15">
+              <input name="INVOICE_COMPANY_TAX" value='{{obj.INVOICE_COMPANY_TAX}}' class="w12 invoice_input ng-untouched ng-pristine ng-valid" placeholder="请在此输入纳税人识别号" />
+            </view>
+          </view>
+        </view>
+        <!---->
+
+
+        <view class="w12 mt15 bgcolor_white">
+
+          <view class="jl_list" style="font-weight: bold;">
+            <view class="jl_list_item bor_bottom">
+              <span class="w12">收票人信息</span>
+            </view>
+          </view>
+          <view class="jl_input">
+            <view class="jl_input_item bor_bottom">
+              <span class="w04">收票人姓名</span>
+              <input name="INVOICE_NAME" value='{{obj.INVOICE_NAME}}' placeholder="必填" class="ng-untouched ng-pristine ng-valid" />
+            </view>
+          </view>
+          <view class="jl_input">
+            <view class="jl_input_item bor_bottom">
+              <span class="w04">收票人手机</span>
+              <input name="INVOICE_TEL" value='{{obj.INVOICE_TEL}}' type="number" placeholder="必填" class="ng-untouched ng-pristine ng-valid" />
+            </view>
+          </view>
+          <view class="jl_input">
+            <view class="jl_input_item bor_bottom">
+              <span class="w04">收票人邮箱</span>
+              <input name="INVOICE_EAMIL" value='{{obj.INVOICE_EAMIL}}' class="w08 ng-untouched ng-pristine ng-valid" placeholder="必填" />
+            </view>
+          </view>
+          <view class="jl_input">
+            <view class="jl_input_item">
+              <span class="w04">详情地址</span>
+              <input name="INVOICE_ADDRESS" value='{{obj.INVOICE_ADDRESS}}' class="w08 ng-untouched ng-pristine ng-valid" placeholder="必填" />
+            </view>
+          </view>
+        </view>
+        <!---->
+        <!---->
+        <view class="w12 mt15 bgcolor_white">
+          <view class="jl_list">
+            <view class="jl_list_item" style="font-weight: bold;">
+              <span class="w12">发票内容</span>
+            </view>
+            <view class="w12 pb15">
+              <view bindtap='InvoiceContents' class="invoice_btn w04 {{InvoiceContents?'xuan':''}}">
+                商品明细
+              </view>
+              <view bindtap='InvoiceContents' class="invoice_btn w04 {{InvoiceContents?'':'xuan'}}">商品类别
+              </view>
+            </view>
+
+          </view>
+        </view>
+
+        <view class="address_footer">
+          <button form-type="submit" class="w12 add_ljgm_btn button button-md button-default button-default-md" ion-button="">
+            <span class="button-inner">确定</span>
+            <view class="button-effect"></view>
+          </button>
+        </view>
+      </form>
+    </block>
+
+
+    <block wx:else>
+      <form bindsubmit="Special_purposeSubmit">
+        <view class="w12">
+          <view class="w12 mt15 bgcolor_white">
+            <view class="jl_list" style="font-weight: bold;">
+              <view class="jl_list_item bor_bottom">
+                <span class="w12">增票资质</span>
+              </view>
+            </view>
+            <view class="jl_list">
+              <view class="jl_list_item">
+                <span class="w11 ">单位名称：
+                  <input name="INVOICE_COMPANY_NAME" value='{{obj.INVOICE_COMPANY_NAME}}' class="w12 invoice_input ng-untouched ng-pristine ng-valid" placeholder="请填写单位名称" />
+
+                </span>
+              </view>
+              <view class="jl_list_item">
+                <span class="w11 ">纳税人编号：
+                  <input name="INVOICE_COMPANY_TAX" value='{{obj.INVOICE_COMPANY_TAX}}' class="w12 invoice_input ng-untouched ng-pristine ng-valid" placeholder="请填写税号" />
+
+                </span>
+              </view>
+              <view class="jl_list_item">
+                <span class="w11" >注册地址：
+                  <input name="INVOICE_COMPANY_ADDRESS"  value='{{obj.INVOICE_COMPANY_ADDRESS}}' class="w12 invoice_input ng-untouched ng-pristine ng-valid" placeholder="请填写地址" />
+
+                </span>
+              </view>
+              <view class="jl_list_item">
+                <span class="w11 ">注册电话：
+                  <input name="INVOICE_COMPANY_TEL" value='{{obj.INVOICE_COMPANY_TEL}}' class="w12 invoice_input ng-untouched ng-pristine ng-valid" placeholder="请填写电话" />
+                </span>
+              </view>
+              <view class="jl_list_item">
+                <span class="w11 ">开户银行：
+                  <input name="INVOICE_COMPANY_BANK_NAME" value='{{obj.INVOICE_COMPANY_BANK_NAME}}' class="w12 invoice_input ng-untouched ng-pristine ng-valid" placeholder="请填写银行" />
+
+                </span>
+              </view>
+              <view class="jl_list_item">
+                <span class="w11 ">银行账号：
+                  <input name="INVOICE_COMPANY_BANK_CODE" value='{{obj.INVOICE_COMPANY_BANK_CODE}}' class="w12 invoice_input ng-untouched ng-pristine ng-valid" placeholder="请填写银行账号" />
+
+                </span>
+              </view>
+            </view>
+          </view>
+          <view class="w12 mt15 bgcolor_white">
+            <view class="jl_list" style="font-weight: bold;">
+              <view class="jl_list_item bor_bottom">
+                <span class="w12">收票人信息</span>
+              </view>
+            </view>
+            <view class="jl_input">
+              <view class="jl_input_item bor_bottom" style="font-size: 13px !important;">
+                <span class="w04">收票人姓名</span>
+                <input name="INVOICE_NAME" value='{{obj.INVOICE_NAME}}' placeholder="必填" class="ng-untouched ng-pristine ng-valid" />
+              </view>
+            </view>
+            <view class="jl_input">
+              <view class="jl_input_item bor_bottom" style="font-size: 13px !important;">
+                <span class="w04">收票人手机</span>
+                <input name="INVOICE_TEL" value='{{obj.INVOICE_TEL}}' type="number" placeholder="必填" />
+              </view>
+            </view>
+            <view class="jl_input">
+              <view class="jl_input_item bor_bottom" style="font-size: 13px !important;">
+                <span class="w04">详情地址</span>
+                <input name="INVOICE_ADDRESS" value='{{obj.INVOICE_ADDRESS}}' class="w08 ng-untouched ng-pristine ng-valid" placeholder="必填" />
+              </view>
+            </view>
+          </view>
+          <view class="w12 mt15 bgcolor_white">
+            <view class="jl_list">
+              <view class="jl_list_item" style="font-weight: bold;">
+                <span class="w12">发票内容</span>
+              </view>
+              <view class="w12 pb15">
+                <view class="invoice_btn w04 xuan">商品明细</view>
+              </view>
+
+            </view>
+          </view>
+        </view>
+
+        <view class="address_footer">
+          <button form-type="submit" class="w12 add_ljgm_btn button button-md button-default button-default-md" >
+            <span class="button-inner">确定</span>
+            <view class="button-effect"></view>
+          </button>
+        </view>
+      </form>
+    </block>
+
+
+
+  </view>
+
+</view>

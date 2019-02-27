@@ -1,0 +1,37 @@
+.scroll-content {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
+  contain: size style layout;
+}
+
+.dex {
+  float:left;
+  height: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.dex text {
+  margin-left: 20rpx;
+  color: #999;
+}
+
+.bj {
+  font-size: 30rpx;
+  margin-right: 20rpx;
+  color: red;
+  z-index: 999;
+  position: absolute;
+  right: 0;
+}

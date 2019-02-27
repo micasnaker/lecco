@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/toc/home/CustomerHome",
+    "pages/toc/login/CustomerLogin",
+    "pages/toc/login/RegisterLogin",
+    "pages/toc/user/CustomerUser",
+    "pages/toc/name/name",
+    "pages/toc/store/CustomerStoreHome",
+    "pages/toc/product/CustomerClassification",
+    "pages/toc/product/CustomerProductSearch",
+    "pages/toc/product/CustomerProductList",
+    "pages/toc/product/CustomerProductMain",
+    "pages/toc/product/CustomerScreen",
+    "pages/toc/cart/CustomerCart",
+    "pages/toc/settlement/CustomerSettlement",
+    "pages/toc/settlement/CashierSettlement",
+    "pages/toc/settlement/AgainSettlement",
+    "pages/toc/settlement/CustomerInvoice",
+    "pages/toc/payment/CustomerPayment",
+    "pages/toc/order/CustomerOrderList",
+    "pages/toc/order/CustomerEvaluate",
+    "pages/toc/order/CustomerOrderMain",
+    "pages/toc/order/CustomerLogistics",
+    "pages/toc/favorite/CustomerProductFavorite",
+    "pages/toc/favorite/CustomerStoreFavorite",
+    "pages/toc/user/CustomerUserInfo",
+    "pages/toc/address/CustomerAddressList",
+    "pages/toc/address/CustomerAddressMain",
+    "pages/toc/user/CustomerCheckpassword/CustomerCheckpassword" 
+  ],
+  "tabBar": {
+    "color": "#5e5f6b",
+    "selectedColor": "#f23030",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "iconPath": "/img/icon_home_mr.png",
+        "selectedIconPath": "img/icon_home_xuan.png",
+        "pagePath": "pages/toc/home/CustomerHome",
+        "text": "首页"
+      },
+      {
+        "iconPath": "/img/icon_menu_mr.png",
+        "selectedIconPath": "img/icon_menu_xuan.png",
+        "pagePath": "pages/toc/product/CustomerClassification",
+        "text": "分类"
+      },
+      {
+        "iconPath": "/img/icon_cart_mr.png",
+        "selectedIconPath": "img/icon_cart_xuan.png",
+        "pagePath": "pages/toc/cart/CustomerCart",
+        "text": "购物车"
+      },
+      {
+        "iconPath": "/img/icon_user_mr.png",
+        "selectedIconPath": "img/icon_user_xuan.png",
+        "pagePath": "pages/toc/user/CustomerUser",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

@@ -1,0 +1,20 @@
+<!--pages/toc/favorite/CustomerProductFavorite.wxml-->
+<block wx:for="{{list}}" wx:key='list'>
+  <view class="bton">
+    <image mode='widthFix' src='{{item.PRODUCT_IMG}}'></image>
+    <view class='bcak'>
+      <text>{{item.PRODUCT_NAME}}</text>
+      <text style="color:red;">￥{{item.PRICE}}</text>
+    </view>
+    <view hidden='{{!item.follow}}' bindtap='follow' style='width:50px;color:red;' id='{{index}}'>
+      <i class="fa fa-heart-o"></i>
+      <text>已关注</text>
+    </view>
+    <view hidden='{{item.follow}}' bindtap='follow' style='width:50px;' id='{{index}}'>
+      <i class="fa fa-heart-o"></i>
+      <text>关注</text>
+    </view>
+  </view>
+</block>
+
+<view style='color:#999; text-align:center;'>--------已经到底了--------</view>

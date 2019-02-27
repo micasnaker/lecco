@@ -1,0 +1,32 @@
+<block wx:for='{{message.data}}'>
+  <view class="w12 address_list">
+    <view class="w12 address_item bor_bottom" bindtap='fh' id='{{index}}'>
+      <view class="address_item_info">
+        <view class="user_name">
+          <span>{{item.NAME}}</span>
+          <span class="ml10">{{item.MOBILE}}</span>
+
+          <div class="address_item_bj">
+            <view catchtap='deleteAddress' id='{{item.ID}}'> 
+              <i class="fa fa-trash-o"></i>
+            </view>
+            <view catchtap='sh' id='{{item.ID}}' data-name="{{}}">
+              <i class="fa fa-pencil"></i>
+            </view>
+          </div>
+        </view>
+
+        <view class="user_address">
+          {{item.STATE}} {{item.CITY}} {{item.DISTRICT}} {{item.ADDRESS}}
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+
+<view class="address_footer" style='position:fixed;bottom:0;'>
+  <button bindtap='sh' class="w12 add_ljgm_btn button button-md button-default button-default-md" style='font-size:15px;'>
+    <span class="button-inner">+ 新建收货地址</span>
+    <view class="button-effect" style="transform: translate3d(-31px, -103px, 0px) scale(1); height: 240px; width: 240px; opacity: 0; transition: transform 373ms ease 0s, opacity 261ms ease 112ms;"></view>
+  </button>
+</view>

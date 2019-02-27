@@ -1,0 +1,110 @@
+<view class="scroll-content">
+  <!---->
+  <view class="w12 mt15 bgcolor_white">
+    <view class="w12">
+      <view class="jl_list pl0">
+        <view class="jl_list_item list_img_item img_small bor_bottom" style="padding-left:70px;">
+          <view class="list_img" style="left:10px">
+            <!---->
+            <image src="{{currentTarget.ITEM[0].PRODUCT_IMG}}" />
+          </view>
+          <view class="w12 list_body_main">
+            <view class="w12 list_body_title font_size_small">{{currentTarget.ITEM[0].PRODUCT_NAME}}</view>
+            <view class="w12 mt10">
+              <span class="w03 lh25 font_size_standard">评分：</span>
+              <span class="w08 lh25" style=" color: var(--color);font-size: 25px;">
+                <block wx:for="{{score}}">
+                  <i bindtap='score' id="{{index}}" style=" color:#ff9728;" class="fa fa-star {{item||'fa-star-o'}}"></i>
+                </block>
+              </span>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="w12 bgcolor_white ">
+      <view class="w12 lh25 font_black_999 pl10 pr10 pt10">
+        <p class="w12 font_size_small pb10">
+
+          <span class="w12">
+            <textarea bindinput="evaluateText" class="w12 height100 ng-untouched ng-pristine ng-valid" id="tx" maxlength="50" placeholder="请您评价" style="border: 0px;"></textarea>
+          </span>
+        </p>
+      </view>
+      <view class="w12 lh25 font_black_999 pl10 pr10 pt10">
+        <p class="w12 font_size_small pb10">
+          <span class="w03 font_black_000">上传图片：</span>
+          <span class="w09">
+            <page-select-pic style="display: block;">
+              <view class="clear-fix">
+                <block wx:for="{{tempFilePaths}}">
+                  <image  style='width:100px;height:100px' src='{{item}}'></image>
+                </block>
+                <!---->
+                <!---->
+                <view class="pictures add" bindtap='scimage'>
+                  <i class="fa fa-camera"></i>
+                </view>
+              </view>
+            </page-select-pic>
+
+          </span>
+        </p>
+      </view>
+      <view class="w12 lh25 font_black_999 pl10 pr10 pt10">
+        <p class="w12 font_size_small pb10">
+          <span class="w04 font_black_000 pj">匿名评价：
+            <checkbox-group bindchange="checked">
+              <checkbox value="pj" />
+            </checkbox-group>
+          </span>
+        </p>
+      </view>
+    </view>
+
+  </view>
+
+
+  <view class="w12 mt15 bgcolor_white">
+    <view class="jl_form">
+      <view class="jl_form_item bor_bottom pr15">
+        <span class="w04">描述相符</span>
+        <span class="w08">
+          <view class="evaluate_star fr">
+            <block wx:for="{{DescriptionCoincidence}}">
+              <i bindtap='DescriptionCoincidence' id="{{index}}" class="fa fa-star {{item||'fa-star-o'}}"></i>
+            </block>
+          </view>
+        </span>
+      </view>
+    </view>
+    <!---->
+    <view class="jl_form">
+      <view class="jl_form_item bor_bottom pr15">
+        <span class="w04">物流速度</span>
+        <span class="w08">
+          <view class="evaluate_star fr">
+            <block wx:for="{{LogisticsSpeed}}">
+              <i bindtap='LogisticsSpeed' id="{{index}}" class="fa fa-star {{item||'fa-star-o'}}"></i>
+            </block>
+          </view>
+        </span>
+      </view>
+    </view>
+    <view class="jl_form">
+      <view class="jl_form_item pr15">
+        <span class="w04">服务态度</span>
+        <span class="w08">
+          <view class="evaluate_star fr">
+            <block wx:for="{{ServiceAttitude}}">
+              <i bindtap='ServiceAttitude' id="{{index}}" class="fa fa-star {{item||'fa-star-o'}}"></i>
+            </block>
+          </view>
+        </span>
+      </view>
+    </view>
+  </view>
+</view>
+
+<button class='tj' bindtap='Submission'>提交</button>

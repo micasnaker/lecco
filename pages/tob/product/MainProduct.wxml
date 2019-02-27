@@ -1,0 +1,111 @@
+<view class="pro_main_header" hidden='{{!transparency}}' style="background: rgba(255, 255, 255, {{transparency}}) none repeat scroll 0% 0%;">
+  <ul class="tab" style="width: 80px;margin-left: -40px;opacity:{{transparency}};">
+    <li class="{{xuan==0?'xuan':''}}" id="0" style="opacity:{{transparency}};" bindtap="scroll">商品</li>
+    <li style="float: right;" class="{{xuan==1?'xuan':''}}" id="1" style="opacity:{{transparency}};" bindtap="scroll">详情</li>
+  </ul>
+</view>
+
+
+<swiper indicator-dots="true" autoplay="true" indicator-active-color="red" style='width:100%;height:100vw;'>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item style='width:100%;height:100%;'>
+      <image src="{{item}}" style="width:100%;height:100%;" />
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<view class="w12 pro_main">
+  <view class="w08 pro_main_pic">
+    <view>
+      <b style="font-size: 16px;">
+        暂无价格</b>
+    </view>
+  </view>
+  <view class="w02 pro_main_gz">
+    <span class="w12 tc">
+      <i>0</i>
+    </span>
+    <span class="w12 tc">销量</span>
+  </view>
+  <view class="w02 pro_main_gz">
+    <span class="w12 tc">
+      <i class="fa fa-heart-o"></i>
+    </span>
+    <span class="w12 tc">关注</span>
+  </view>
+  <view class="w02 pro_main_gz font_red hide">
+    <span class="w12 tc">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="w12 tc">取消</span>
+  </view>
+  <view class="w12 mt15 h2">
+    <em>惠</em>暴风100英寸16:9地拉幕布</view>
+  <span class="w06 font_gray mt10">运营费用: 0</span>
+  <span class="w06 font_gray tr mt10">无库存， 库存0， 选中0
+  </span>
+  <span class="w12 font_red mt10">优惠商品，预计3-5天内发货</span>
+</view>
+
+<view style='position: fixed;left:0;bottom:0;width:100%;' class='z_index999'>
+  <view class="footer_buttom pro_main_btn " style="padding-left: 140px;">
+    <view class="pro_main_icon" style="box-shadow:none" bindtap='gohome'>
+      <i class="fa fa-home"></i>
+      <span>首页</span>
+    </view>
+    <view class="pro_main_icon" style="left:60px;box-shadow:none" bindtap="gocart">
+      <i class="fa fa-shopping-cart"></i>
+      <span>购物车</span>
+      <em>3</em>
+    </view>
+    <view class="w12" style="transition: opacity 200ms ease 0s; opacity: 1;">
+      <view class="w06 add_cart_btn button sp">
+        <span class="button-inner">加入购物车</span>
+        <view class="button-effect"></view>
+      </view>
+      <view class="w06 add_ljgm_btn button sp">
+        <span class="button-inner">立即购买</span>
+        <view class="button-effect"></view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view class="w12 plr15 mt15">
+  <span class="w04" style="height:10px; border-bottom:solid 1px #e4e4e4"></span>
+  <span class="w04 tc">
+    商品详情
+  </span>
+  <span class="w04" style="height:10px; border-bottom:solid 1px #eee"></span>
+</view>
+
+<view class="w12 mt15">
+  <video class="w12" controls="controls" poster="http://121.41.79.182:8090/fs/fs05/attachments/2018-10-30/K032/cf49a565bf54f10e21cd9ab2947c8845" src="http://121.41.79.182:8090/fs/fs05/attachments/2018-10-30/M001/563ce99300872099ed4d57cefed7128d"></video>
+
+</view>
+
+<view class="w12 mt15">
+  <image style='width:100%;' mode="widthFix" src="http://121.41.79.182:8090/fs/fs05/attachments/2018-10-30/M008/7d4b4a8de5d6e92a7dd598975c4a2365" />
+</view>
+
+<view class="w12 mt15">
+  <view class="pro_main_pj">
+    <view class="pro_pj_header">
+      <image src="/img/userPic.png"/>
+      <view class="title h3">用户</view>
+      <span class="time">2018/10/21</span>
+    </view>
+    <view class="pro_pj_body">
+      <p class="w12">评价被融</p>
+      <view class="main_img">
+        <view class="more_img">
+          <image mode="widthFix" src="/img/userPic.png"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view style='width:100%; height:50px; float:left;'></view>

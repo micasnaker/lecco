@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "jl-layout": "/pages/component/JLLayout"
+  },
+  "navigationBarTitleText": "商城"
+}

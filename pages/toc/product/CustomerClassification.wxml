@@ -1,0 +1,23 @@
+<view class="pro_class_header position_f z_index999" bindtap='bd'>
+  <view class="w12">
+    <span class="fl">搜索商品</span>
+    <i class="fr fa fa-search"></i>
+  </view>
+</view>
+
+<view class="pro_class" wx:if="biglist">
+  <view class="pro_class_item {{nav.thecolor? 'xuan': ''}}" wx:for-item="nav" wx:for="{{biglist}}" bindtap="choosethis" data-nav="{{nav}}" data-i="{{index}}">
+    <span>{{ nav.FLNAME }}</span>
+  </view>
+</view>
+
+
+<view class="pro_class_main bgcolor_white ">
+  <view class="w12 pro_class_case mb15" style='border-bottom:solid 1rpx #999;'>
+
+    <view class="pro_class_box tt" style="width:100px;height:100px;margin-bottom:30px;" wx:for-item="na" wx:for="{{smalllist}}" bindtap="push" data-na="{{na}}">
+      <image style='width:100%;height:100%;' src="{{na.FLTP}}" /> {{na.FLNAME}}
+    </view>
+
+  </view>
+</view>

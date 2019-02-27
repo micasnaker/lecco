@@ -1,0 +1,103 @@
+<view class="w12 order_detail_bg pl10 pr10 pt25 pb25">
+  <view class="w06 mt5 h3 font_size_super">
+    <block wx:if="{{list.ITEM[0].DJZT=='OrderCancelled'}}">
+      <i class="fa fa-clock-o mr5"></i>订单已取消
+    </block>
+    <block wx:elif="{{list.ITEM[0].DJZT=='OrderOpen'}}">
+      <i class="fa fa-clock-o mr5"></i>订单待付款
+    </block>
+    <block wx:elif="{{list.ITEM[0].DJZT=='OrderDeliver'}}">
+      <i class="fa fa-clock-o mr5"></i>已发货
+    </block>
+    <block wx:elif="{{list.ITEM[0].DJZT=='OrderCompleted'}}">
+      <i class="fa fa-clock-o mr5"></i>已完成
+    </block>
+  </view>
+  <span class="w06 tr">感谢您在{{list.order[0].STORE_NAME}}购物</span>
+  <span class="w06 tr mt5">欢迎您再次光临</span>
+</view>
+
+<view class="w12 customer pt10">
+  <view class="w12 customer_info">
+    <view class="fl mtb0 plb0 h3 font_size_super">{{list.order[0].CONTANCTS_NAME}}</view>
+    <span class="fl mt5 ml15">{{list.order[0].CONTANCTS_MOBILE}}</span>
+    <view class="w12 mt5 font_black_999">
+      <i class="fa fa-map-marker mr5"></i>
+      {{list.order[0].FULL_ADDRESS}}
+    </view>
+  </view>
+</view>
+
+<view class="w12 mt15 bgcolor_white">
+  <view class="w12">
+    <view class="w12 pl10 mt10 pb10 bor_bottom">{{list.order[0].STORE_NAME}}</view>
+  </view>
+  <block wx:for="{{list.ITEM}}">
+    <view class="w12" bindtap='tz' id='{{index}}'>
+      <view class="jl_list pl0">
+        <view class="jl_list_item list_img_item img_small bor_bottom" style="padding-left:70px;">
+          <view class="list_img" style="left:10px">
+            <image mode="widthFix" src="{{item.PRODUCT_IMG||'/img/defaultImage.jpg'}}" />
+          </view>
+          <view class="w12 list_body_main">
+            <view class="w12 list_body_title font_size_small">{{item.PRODUCT_NAME}}</view>
+            <view class="w12 mt10">
+              <span class="w04 lh25 font_size_standard">￥{{item.PRICE}}</span>
+              <span class="fl lh25 font_size_small">×{{item.QUANTITY}}</span>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="w12 pt15 pb15 tc">
+    <i class="fa fa-volume-control-phone mr5"></i>联系客服</view>
+</view>
+
+<view class="w12 bgcolor_white mt15">
+  <view class="w12 lh25 font_black_999 pl10 pr10 pt10">
+    <p class="w12 font_size_small pb10">
+      <span class="font_black_000 w03">订单编号：</span>
+      <span class="w09">
+        <p class="w12">{{list.ORDER_PART_SEQ_ID}}
+          <textarea style="position: absolute; right: -9999px;"></textarea>
+        </p>
+      </span>
+    </p>
+  </view>
+</view>
+
+<view class="w12 bgcolor_white mt15">
+  <view class="w12 lh25 font_black_999 pl10 pr10 pt10">
+    <p class="w12 font_size_small pb10">
+      <span class="font_black_000">创建时间：</span>{{list.order[0].ENTRY_DATE}}</p>
+  </view>
+</view>
+
+
+<view class="w12 bgcolor_white mt15">
+  <view class="w12 lh25 font_black_999 pl10 pr10 pt10">
+    <p class="w12 font_size_small pb10">
+      <span class="font_black_000">商品总额</span>
+      <span class="font_black_000 fr">￥{{list.order[0].PART_TOTAL-PRODUCT_NAME.PRICE}}</span>
+    </p>
+    <p class="w12 font_size_small pb10">
+      <span class="font_black_000">运费：</span>
+      <span class="font_black_000 fr">￥{{PRODUCT_NAME.PRICE}}</span>
+    </p>
+    <p class="w12 font_size_small pb10">
+      <span class="font_black_000">实付款(含运费)：</span>
+      <span class="fr font_red">￥{{list.order[0].PART_TOTAL}} </span>
+    </p>
+  </view>
+</view>
+
+<view class="w12" style='height:50px;'></view>
+
+<!--
+<view class="footer ">
+  <view>立即支付</view>
+  <view>取消订单</view>
+</view>
+
+-->

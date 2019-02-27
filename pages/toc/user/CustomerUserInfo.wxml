@@ -1,0 +1,63 @@
+<view class="scroll-content" >
+  <view class="w12 bgcolor_white">
+    <view class="jl_form">
+      <view class="jl_form_item bor_bottom" >
+        <span class="w04 lh50">头像</span>
+        <span class="w08" bindtap="upload">
+          <image class="fr width50" mode='widthFix' src="/img/userPic.png"/>
+        </span>
+        <i class="fa fa-angle-right"></i>
+      </view>
+    </view>
+    <view class="jl_list">
+      <view class="jl_list_item bor_bottom" bindtap='nametap' data-nickname="{{username}}" hover-stop-propagation="true">
+        <span class="w04">名称</span>
+        <span class="w08 tr font_gray">{{UserInfo.USERNAME || '未设置'}}</span>
+      </view>
+    </view>
+    <view class="jl_list">
+      <view class="jl_list_item pr15">
+        <span class="w04">手机</span>
+        <span class="w08 tr font_gray">{{ UserInfo.MOBILE }}</span>
+      </view>
+    </view>
+  </view>
+  <view class="w12 mt15 bgcolor_white">
+    <view class="jl_form" >
+      <view class="jl_form_item" catchtap='gotoCheckPwd'>
+        <span class="w04">修改密码</span>
+        <span class="w08 tr font_gray"></span>
+        <i class="fa fa-angle-right"></i>
+      </view>
+    </view>
+
+  </view>
+  <view class="w12 mt15 bgcolor_white">
+    <view class="jl_form">
+      <view class="jl_form_item bor_bottom">
+        <span class="w04">性别</span>
+        <picker range="{{array}}" value="{{index}}" bindchange="bindPickerChange">
+        <span class="w08 tr font_gray">{{array[index] || '未设置'}}</span>
+        </picker>
+        <i class="fa fa-angle-right"></i>
+      </view>
+    </view>
+    <view class="jl_form">
+    
+      <view class="jl_form_item ">   
+        <span class="w04">生日</span>
+        <picker mode="date" start="2000-01-01" end="2018-04-01" value="{{date}}"  bindchange="bindDateChange">
+        <span class="w08 tr font_gray">{{date || '未设置'}}</span>
+         </picker>
+        <i class="fa fa-angle-right"></i>    
+      </view>
+    </view>
+</view>
+  <view class="w12 mt15 bgcolor_white">
+    <view class="jl_form">
+      <view class="jl_form_item pr15">
+        <span class="w12 tc font_black_999" bindtap="Logout">退出登录</span>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,74 @@
+<text class='bj' hidden='{{hide}}' bindtap='dex_edit'>编辑商品</text>
+<text class='bj' hidden='{{!hide}}' bindtap='dex_edit'>完成</text>
+
+<view class="scroll-content" style='background:#fff;'>
+  <block wx:for="{{cart_commodity}}" wx:for-item="store_number" wx:for-index="store_index" wx:key='STORE_ID'>
+    <view class='dex'>
+      <text>{{store_number.STORE_NAME}}</text>
+    </view>
+    <block wx:for='{{store_number.productList}}' wx:key='PRODUCT_ID'>
+      <view class=" w12 cart_pro ">
+        <view class="w12 cart_pro_list">
+          <view class="w12 cart_pro_item">
+            <view class="cart_pro_check {{item.CHECK_MARK==10?'xuan':''}}" bindtap='radio_product' data-STORE_INDEX="{{store_index}}" data-PRODUCT_INDEX="{{index}}">
+              <i class="fa fa-check"></i>
+            </view>
+            <view class="cart_pro_info">
+              <image mode="widthFix" src="{{item.PRODUCT_IMG||'/img/defaultImage.jpg'}}" />
+              <view hidden='{{item.STOCK_NUM}}'  class="reminder">库存不足</view>
+              <view class="w12 pro_name .h3">
+                <em class="fl">惠</em>{{item.PRODUCT_NAME}}</view>
+              <!--<span class="w12 font_red mt5">{{item.FREEPOSTMONEY}}</span>-->
+              <span class="w12 font_gray font_size_msmall">库存量:{{item.STOCK_NUM}}</span>
+              <view class="w12 mt5">
+                <view class="w06 pro_pic">
+                  <span class="fl">￥</span>
+                  <b class="fl">{{item.PRICE}}</b>
+                </view>
+                <view class="num_p_m">
+                  <view class="p button" bindtap='cut_plus' id="0" data-STORE_INDEX="{{store_index}}" data-PRODUCT_INDEX="{{index}}">-
+                  </view>
+                  <input class='p' bindblur="cut_plus" id="2" value='{{item.QUANTITY}}' data-STORE_INDEX="{{store_index}}" data-PRODUCT_INDEX="{{index}}" type='number'>
+                  </input>
+                  <view class="p button" bindtap='cut_plus' id="1" data-STORE_INDEX="{{store_index}}" data-PRODUCT_INDEX="{{index}}">+
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <view style='width:100%; height:50px;float:left;'></view>
+</view>
+
+
+<view class="cart_footer" style='position:fixed;bottom:0;z-index:999'>
+  <view class="fl">
+    <view bindtap='qxuan' class="cart_pro_check {{qxuan?'xuan':''}}">
+      <i class="fa fa-check"></i>
+    </view>
+    <span class="fl ml5 mr10">全选</span>
+  </view>
+  <view class="fl pl5 pr5">
+    <view class="w12 h3">
+      <span class="fl">合计:</span>
+      <view class="footer_pic fl">
+        <span class="fl">￥</span>
+        <b class="fl">{{prices}}</b>
+        <!-- <span class="fl" style="margin-top:18px;">.00</span>-->
+      </view>
+    </view>
+  </view>
+
+  <button bindtap='js' id='1' hidden='{{hide}}' class="w04 add_ljgm_btn fr button button-md button-default button-default-md">
+    <span class="button-inner">结算</span>
+    <view class="button-effect"></view>
+  </button>
+  <button bindtap='js' id='0' hidden='{{!hide}}' class="w04 add_cart_btn fr button button-md button-default button-default-md ">
+    <span class="button-inner">删除</span>
+    <view class="button-effect"></view>
+  </button>
+
+</view>

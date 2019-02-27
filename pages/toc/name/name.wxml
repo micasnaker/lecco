@@ -1,0 +1,9 @@
+<scroll-view class="page" scroll-y="true">
+    <view id="username_editing" class="layout-padding ng-scope">
+      <view class="cell-group">
+        <input type="text" placeholder="15572046172" bindinput="changeStatus" class="ng-pristine ng-valid ng-not-empty ng-touched" value="{{username}}"  />
+       <text class="input-clear {{display}}" catchtap="clearText"></text>
+      </view>
+      <button class="btn_primary {{class}}" disabled="{{disabled}}"  catchtap="updataInfo" data-nickname="{{username}}">确定</button>
+    </view>
+</scroll-view>

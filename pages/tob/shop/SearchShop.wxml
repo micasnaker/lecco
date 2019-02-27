@@ -1,0 +1,46 @@
+<view class="pro_class_header">
+  <view class="w12 right_button">
+    <input bindinput='search_input' bindconfirm="search" data-type="商品" placeholder="搜索商品..." class="ng-untouched ng-pristine ng-valid" />
+  </view>
+  <text bindtap='cancel'>取消</text>
+</view>
+
+
+<view class="pro_search">
+  <view class='h3'>历史搜索</view>
+  <view class="w12">
+    <view class="jl_form bgcolor_white" hidden="{{!search_field}}" bindtap="search" data-type="店铺">
+      <view class="jl_form_item bor_bottom">
+        <span class="w12">搜索"{{ search_field }}"店铺</span>
+      </view>
+    </view>
+
+    <block wx:if="{{search_fields.length==0}}">
+      <view class="message h2">暂无搜索记录</view>
+    </block>
+
+    <block wx:else>
+      <block wx:for='{{search_fields}}' wx:key='search_fields'>
+        <block wx:if="{{item.type=='商品'}}">
+          <view class="jl_form bgcolor_white" bindtap='search' data-type="商品" data-name='{{item.name}}'>
+            <view class="jl_form_item bor_bottom">
+              <span class="w12">{{item.name}}</span>
+            </view>
+          </view>
+        </block>
+        <block wx:else="{{item.type=='店铺'}}">
+          <view class="jl_form bgcolor_white" bindtap='search' data-type="店铺" data-name='{{item.name}}'>
+            <view class="jl_form_item bor_bottom">
+              <span class="w12">"{{item.name}}"店铺</span>
+            </view>
+          </view>
+        </block>
+      </block>
+      <view class="w12 mt30 mb10 pl15 pr15">
+        <button class="w12 font_size_large pt5 pb5 button" style="border-radius: 2px; overflow: hidden;font-weight: 500;text-transform: uppercase;color: #fff;background-color: #ef250f;" bindtap='delete'>
+          <span>清空历史记录</span>
+        </button>
+      </view>
+    </block>
+  </view>
+</view>

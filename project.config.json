@@ -1,0 +1,62 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.91",
+	"appid": "wxfd06e31e2b6d4443",
+	"projectname": "123",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "版本更新",
+					"pathName": "pages/toc/user/CustomerUser",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改密码",
+					"pathName": "pages/toc/user/CustomerCheckpassword/CustomerCheckpassword",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人信息",
+					"pathName": "pages/toc/user/CustomerUserInfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "弹窗组件",
+					"pathName": "pages/component/AlertTip/alertTip",
+					"query": ""
+				}
+			]
+		}
+	}
+}

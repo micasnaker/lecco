@@ -1,0 +1,10 @@
+/* pages/toc/order/CustomerEvaluate.wxss */
+.pj{
+  display: flex;
+}
+.tj{
+  width: 100%;
+  background: #ff9728;
+  position: fixed;
+  bottom: 0;
+}

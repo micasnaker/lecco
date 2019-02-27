@@ -1,0 +1,46 @@
+<view class="w12 cart_pro mb15">
+  <view class="jl_form">
+
+    <view class="jl_form_item bor_bottom">
+      <span class="w12">
+        <i class="fa fa-shopping-cart mr10 font_color"></i>暴风TV官方自营
+        <span class="fr" style="color: #fd3535;"></span>
+      </span>
+    </view>
+
+    <block wx:for="{{cart}}" wx:key='cart'>
+      <view class="w12 bgcolor_white" style='height:200rpx;'>
+        <view class="w12 cart_pro_list " style="padding: 0px;">
+          <view class="w12 cart_pro_item">
+            <image mode="widthFix" src="{{item.imageurl}}" />
+            <view class="w12 pro_name h3">{{item.name}}</view>
+            <view class="w12 mt10">
+              <view class="w06 pro_pic">
+                <span>￥</span>
+                <b>0.00</b>
+              </view>
+              <view class="num_p_m">
+                <view class="p  button ">
+                  <span>-</span>
+                </view>
+                <input value='1' style="width: 30px;" type="number" />
+                <view class="p button">
+                  <span>+</span>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!--<view side="right" style="top: 1px;height: calc(100% - 1px);" ng-reflect-side="right">
+        <view class="btn_red button button-md button-default button-default-md" ion-button="">
+          <span class="button-inner">
+            删除
+          </span>
+          <view class="button-effect"></view>
+        </view>
+      </view>-->
+      </view>
+    </block>
+  </view>
+</view>

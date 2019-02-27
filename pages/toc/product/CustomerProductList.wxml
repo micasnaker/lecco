@@ -1,0 +1,79 @@
+<view class="bgcolor_white z_index999 '{{hide_list}}'" style='position:fixed; width:100%; border-radius:0px;'>
+  <view class="ion_header_search" style="padding: 7px 0px 7px 15px;">
+    <span></span>
+    <input bindinput='calc' value='{{name}}' class="search_input" placeholder="搜索商品..." style="width: calc( 100% - 70px );float: left;" />
+    <button bindtap='search' style="position: inherit;float: right;">
+      <i class="fa fa-search"></i>
+    </button>
+  </view>
+  <view class="jl_pro_select bor_bottom">
+    <view id='0' class="w03 pro_select_item" bindtap='sort'>
+      <span class="{{xuan==0?'xuan':''}}">综合</span>
+      <block wx:if="{{xuan==0}}">
+        <view class="fa fa-caret-down" hidden="{{!sort}}"></view>
+        <view class="fa fa-caret-up" hidden="{{sort}}"></view>
+      </block>
+    </view>
+    <view id='1' class="w03 pro_select_item" bindtap='sort'>
+      <span class="{{xuan==1?'xuan':''}}">销量</span>
+      <block wx:if="{{xuan==1}}">
+        <view class="fa fa-caret-down" hidden="{{!sort}}"></view>
+        <view class="fa fa-caret-up" hidden="{{sort}}"></view>
+      </block>
+    </view>
+    <view id='2' class="w03 pro_select_item" bindtap='sort'>
+      <span class="{{xuan==2?'xuan':''}}">价格</span>
+      <block wx:if="{{xuan==2}}">
+        <view class="fa fa-caret-down" hidden="{{!sort}}"></view>
+        <view class="fa fa-caret-up" hidden="{{sort}}"></view>
+      </block>
+    </view>
+    <view id='3' class="w03 pro_select_item" bindtap='screen'>
+      <span >筛选</span>
+      <text  class="fa fa-filter ml5 font_gray"></text>
+    </view>
+  </view>
+</view>
+
+<view hidden="{{scroll}}">
+  <i bindtap="home" class="fa fa-arrow-up go_top ng-tns-c2-7"></i>
+</view>
+
+<view class='empty'></view>
+
+<block wx:for='{{product_list}}' wx:key='list'>
+  <view class="w12 jl_pro_list" bindtap='main' id='{{index}}'>
+    <view class="w12 jl_pro_item bor_bottom" style='border-bottom:solid #e4e4e4 1px'>
+      <view class="pro_img">
+        <image src="{{item.PRODUCT_IMG||'/img/defaultImage.jpg'}}" />
+      </view>
+      <view class="w12 pro_info">
+        <view class="pro_name">{{item.PRODUCT_NAME}}
+        </view>
+        <view class="pro_value01">
+          <span>库存:{{item.STOCK_NUM||'已售罄'}}</span>
+          <!--<span class="fr">已售{{item.SALE_NUM}}件</span>-->
+        </view>
+        <view class="pro_pic">
+          <view>
+            <span>￥</span>
+            <text class="fl" style="font-size: 18px;">{{item.PRICE}}</text>
+            <span style="margin-top:7px;">.{{item.moneydecimal}}</span>
+          </view>
+        </view>
+        <span class="w12 font_gray ng-tns-c2-2">运营收益：{{item.profit}}</span>
+        <span class="w12 font_red ng-tns-c2-2">{{item.notes}}</span>
+        <view class="w12 font_gray">{{item.STORE_NAME}}</view>
+        <image class="fr cart" src="/img/pro_list_cart.png" />
+      </view>
+    </view>
+  </view>
+</block>
+
+<view style="    float: left; line-height: 50px; width: 100%; text-align: center;">
+  <view class="tc font_gray" style="width: 100%;">
+
+    ----------------- 老板也是有底线的 -----------------
+
+  </view>
+</view>

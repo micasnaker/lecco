@@ -1,0 +1,30 @@
+<view class="scroll-content">
+  <view class="login">
+    <view class="login_main" style="padding-top: 15%;">
+      <view class="user_img" style="width:40%; margin-left:30%;">
+        <image style='max-width: 100%;' mode='widthFix' src="/img/logo_rectangle.jpg" />
+      </view>
+      <view class="w12 user_info">
+        <view class="user_input mt30 bor_bottom">
+          <b>手机号</b>
+          <input bindinput='PhoneNumber' type="number" placeholder="请输入手机号" />
+        </view>
+        <view class="user_input bor_bottom">
+          <b>密码</b>
+          <input bindinput='password' maxlength='20' type="password" placeholder="请输入密码" />
+        </view>
+      </view>
+      <view class="w12 mt20 mb20 font_blue lh20 font_size_standard">
+        <span class="w06">验证码登录</span>
+        <span class="w06 font_gray tr">忘记密码</span>
+      </view>
+      <button disabled="{{disabled}}" bindtap='login' class="fl button button-md " style='background:#ff9728;width:100%;'>
+        <span class="button-inner">登录</span>
+        <view class="button-effect"></view>
+      </button>
+    </view>
+    <view bindtap='zc' class="w12 mt20 mb20 font_blue lh20 font_size_large">
+      <span class="w12 tc">免费注册</span>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<view class="scroll-content" style="margin-top: 46px;">
+  <!---->
+
+  <!---->
+  <view style="font-size: 25px;color: #9E9E9E; margin-top: 40%;text-align: center;text-shadow: 0px 1px;">
+    <span>
+      暂
+    </span>
+    <span>
+      无
+    </span>
+    <span>
+      数
+    </span>
+    <span>
+      据
+    </span>
+  </view>
+
+</view>

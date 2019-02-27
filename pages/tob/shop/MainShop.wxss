@@ -1,0 +1,6 @@
+/* pages/tob/shop/MainShop.wxss */
+.sp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

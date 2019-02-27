@@ -1,0 +1,82 @@
+<view class="pro_main_header" hidden='{{!transparency}}' style="background: rgba(255, 255, 255, {{transparency}}) none repeat scroll 0% 0%;">
+  <ul class="tab" style="width: 80px;margin-left: -40px;opacity:{{transparency}};">
+    <li class="xuan" style="opacity:{{transparency}};">商品</li>
+    <li style="float: right;" class="" style="opacity:{{transparency}};">详情</li>
+  </ul>
+</view>
+
+
+<swiper indicator-dots="true" autoplay="true" indicator-active-color="red" style='width:100%;height:100vw;'>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item style='width:100%;height:100%;'>
+      <image src="{{item}}" style="width:100%;height:100%;" />
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<view class="w12 pro_main">
+  <view class="w08 pro_main_pic">
+    <view>
+      <b style="font-size: 16px;">
+        暂无价格</b>
+    </view>
+  </view>
+  <view class="w02 pro_main_gz">
+    <span class="w12 tc">
+      <i>0</i>
+    </span>
+    <span class="w12 tc">销量</span>
+  </view>
+  <view class="w02 pro_main_gz">
+    <span class="w12 tc">
+      <i class="fa fa-heart-o"></i>
+    </span>
+    <span class="w12 tc">关注</span>
+  </view>
+  <view class="w02 pro_main_gz font_red hide">
+    <span class="w12 tc">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="w12 tc">取消</span>
+  </view>
+  <view class="w12 mt15 h2">
+    <em>惠</em>暴风100英寸16:9地拉幕布</view>
+  <span class="w06 font_gray mt10">运营费用: 0</span>
+  <span class="w06 font_gray tr mt10">无库存， 库存0， 选中0
+  </span>
+  <span class="w12 font_red mt10">优惠商品，预计3-5天内发货</span>
+</view>
+
+<view style='position: fixed;left:0;bottom:0;width:100%;'>
+  <view class="footer_buttom pro_main_btn " style="padding-left: 140px;">
+    <view class="pro_main_icon" style="box-shadow:none">
+      <i class="fa fa-home"></i>
+      <span>首页</span>
+    </view>
+    <view class="pro_main_icon" style="left:60px;box-shadow:none">
+      <i class="fa fa-shopping-cart"></i>
+      <span>购物车</span>
+      <em>3</em>
+    </view>
+    <view class="w12" style="transition: opacity 200ms ease 0s; opacity: 1;" >
+      <view class="w06 add_cart_btn button sp" >
+        <span class="button-inner" >加入购物车</span>
+        <view class="button-effect"></view>
+      </view>
+      <view class="w06 add_ljgm_btn button sp">
+        <span class="button-inner" >立即购买</span>
+        <view class="button-effect"></view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<div class="w12 plr15 mt15">
+                    <span class="w04" style="height:10px; border-bottom:solid 1px #e4e4e4"></span>
+                    <span class="w04 tc">
+                        商品详情
+                    </span>
+                    <span class="w04" style="height:10px; border-bottom:solid 1px #eee"></span>
+                </div>

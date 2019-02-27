@@ -1,0 +1,28 @@
+<view class="scroll-content" >
+  <view class="w12 bgcolor_white">
+    <view class="jl_input">
+      <view class="jl_input_item bor_bottom pr15">
+        <span class="w04">手机号</span>
+        <input bindinput='PhoneNumber' class="w08 ng-untouched ng-pristine ng-valid" type="number" placeholder="请输入注册手机号"/>
+      </view>
+    </view>
+    <view class="jl_input">
+      <view class="jl_input_item bor_bottom pr15">
+        <span class="w04">验证码</span>
+        <input bindinput='yzm' class="w08" type="text" placeholder="请输入验证码"/>
+        <!---->
+        <view bindtap='VerificationCode' style='height:25px;text-align:center;'>{{yzm}}</view>
+      </view>
+    </view>
+    <view class="jl_input">
+      <view class="jl_input_item pr15">
+        <span class="w04">登录密码</span>
+        <input bindinput='password' password='true' maxlength='20' class="w08 ng-untouched ng-pristine ng-valid" type="string" placeholder="请设置登录密码"/>
+      </view>
+    </view>
+  </view>
+  <view class="w12 mt30 pl15 pr15">
+    <button bindtap='register' class="w12 font_size_large button button-md" style="background:#ff9728">立即注册
+    </button>
+  </view>
+</view>

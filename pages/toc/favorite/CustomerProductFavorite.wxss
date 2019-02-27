@@ -1,0 +1,30 @@
+/* pages/toc/favorite/CustomerProductFavorite.wxss */
+
+page {
+  height: 100%;
+  background: #fff !important;
+}
+
+.bton {
+  height: 300rpx;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.bton>image {
+  width: 150rpx;
+}
+
+.bcak {
+  height: 50%;
+  width: 300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bcak>text {
+  font-size: 25rpx;
+}

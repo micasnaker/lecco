@@ -1,0 +1,41 @@
+<view class="w12 bgcolor_white">
+  <view class="jl_input">
+    <view class="jl_input_item bor_bottom pr15">
+      <span class="w04">收货人</span>
+      <input bindinput='name' class="w08 font_gray ng-untouched ng-pristine ng-valid" value='{{Customer.NAME}}' placeholder="收货人姓名" type="text" />
+    </view>
+  </view>
+  <view class="jl_input">
+    <view class="jl_input_item bor_bottom pr15">
+      <span class="w04">联系方式</span>
+      <input bindinput='phone' class="w08 font_gray ng-untouched ng-pristine ng-valid" value='{{Customer.MOBILE}}' placeholder="收货人联系方式" type="number" />
+    </view>
+  </view>
+  <view class="jl_form">
+    <view class="jl_form_item bor_bottom jl_form_right">
+      <view class="form_main">
+        <span class="w04">所在地区</span>
+        <span class="w08 tl font_gray">
+          <picker mode="multiSelector" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="{{'TEXT'}}">
+            <view class="picker">
+              当前选择：{{multiArray[0][multiIndex[0]].TEXT}} {{multiArray[1][multiIndex[1]].TEXT}} {{multiArray[2][multiIndex[2]].TEXT}}
+            </view>
+          </picker>
+        </span>
+      </view>
+      <span class="fa fa-angle-right font_gray mr15" style="position: absolute;top: 50%;transform: translateY(-50%);right: 0px;"></span>
+    </view>
+  </view>
+  <view class="jl_input">
+    <view class="jl_input_item pr15">
+      <textarea bindinput='address' value='{{Customer.ADDRESS}}' class="w12 ng-untouched ng-pristine ng-valid" placeholder="详细地址"></textarea>
+    </view>
+  </view>
+</view>
+
+<view class="address_footer" style='position:fixed;bottom:0;'>
+  <button bindtap='bc' class="w12 add_ljgm_btn button button-md button-default button-default-md" style='font-size:15px;'>
+    <span class="button-inner">保存</span>
+    <view class="button-effect" style="transform: translate3d(-31px, -103px, 0px) scale(1); height: 240px; width: 240px; opacity: 0; transition: transform 373ms ease 0s, opacity 261ms ease 112ms;"></view>
+  </button>
+</view>

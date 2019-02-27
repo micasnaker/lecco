@@ -1,0 +1,7 @@
+<view class="shop_header shop_header_index">
+  <view class="shop_header_search">
+    <i class="fa fa-align-justify"></i>
+    <input bindtap='bd' placeholder="搜索商品" style="width: calc(-110px + 100vw);" />
+    <i class="fa fa-commenting-o"></i>
+  </view>
+</view>

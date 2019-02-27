@@ -1,0 +1,26 @@
+<view class="w12" wx:for-item="COMP" wx:for="{{component}}">
+    <view wx:if="{{COMP.COMP01 == '1'}}">
+        <view class="w12 pro_main_img">
+          <ion-slide wx:key="ITEM" wx:for="{{layout[COMP.DIV01]}}">
+              <img src="{{ITEM.DATA03}}" class="w12" click="goToItem(ITEM)" ></img>
+          </ion-slide>
+          <swiper indicator-dots="true" autoplay="true" interval="4000" duration="1000" circular="true"> 
+              <block wx:for-item="ITEM" wx:for="{{layout[COMP.DIV01]}}"> 
+                <swiper-item> 
+                    <image src="{{ITEM.DATA03}}" style="width: 100%" mode="widthFix"/> 
+                </swiper-item> 
+              </block> 
+          </swiper>
+        </view>
+    </view>
+    <view wx:else> 
+        <view style="float:left; width: {{(COMP.COMP05[i] || COMP.COMP05[0] || '100')+'%'}}"
+            wx:for-item="ITEM" wx:for="{{layout[COMP.DIV01]}}">
+            <image wx:if="{{ITEM.DATA03 != null}}" 
+                   src="{{ITEM.DATA03}}" 
+                   style="width: 100%" 
+                   mode="widthFix"
+                   bindtap="goToItem" data-item='{{ITEM}}'></image>
+        </view>
+    </view>
+</view>
